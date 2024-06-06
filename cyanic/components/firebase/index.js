@@ -3,7 +3,6 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBS-t-SL6ZY1t_bYy0qgwVtWxbtfcx4tqs",
   authDomain: "smart-fit-sprint.firebaseapp.com",
