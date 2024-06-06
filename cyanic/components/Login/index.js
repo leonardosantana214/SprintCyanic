@@ -1,13 +1,33 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image, TextInput, TouchableOpacity, Alert, ImageBackground } from 'react-native';
-import { auth } from '../firebase'; // Importar o Firebase configurado
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from 'firebase/auth'; // Importe os métodos corretamente
+import { firebaseConfig } from '../firebase'; // Importe o arquivo de configuração do Firebase
+
+const auth = getAuth();
 
 class LoginScreen extends Component {
   state = {
     email: '',
     password: '',
   };
+
+  componentDidMount() {
+    // Configurar observador para o login com o Google
+    getRedirectResult(auth)
+      .then((result) => {
+        if (result.credential) {
+          // O usuário está logado
+          const credential = GoogleAuthProvider.credentialFromResult(result);
+          const token = credential.accessToken;
+          const user = result.user;
+          Alert.alert('Login com Google bem-sucedido!');
+          this.props.navigation.replace('Main');  // Navegação para MainContainer
+        }
+      })
+      .catch((error) => {
+        Alert.alert('Erro ao fazer login com Google', error.message);
+      });
+  }
 
   handleLogin = async () => {
     const { email, password } = this.state;
@@ -21,11 +41,9 @@ class LoginScreen extends Component {
   };
 
   handleGoogleLogin = async () => {
-    const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, provider);
-      Alert.alert('Login com Google bem-sucedido!');
-      this.props.navigation.replace('Main');  // Navegação para MainContainer
+      const provider = new GoogleAuthProvider();
+      signInWithRedirect(auth, provider);
     } catch (error) {
       Alert.alert('Erro ao fazer login com Google', error.message);
     }
