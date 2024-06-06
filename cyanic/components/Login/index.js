@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, Button, Alert } from 'react-native';
-import { auth } from './firebaseConfig'; // Importar o Firebase configurado
+import { auth } from '../firebase'; // Importar o Firebase configurado
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 class LoginScreen extends Component {
