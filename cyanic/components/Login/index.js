@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, Button, Alert } from 'react-native';
+import { StyleSheet, View, Text, Image, TextInput, TouchableOpacity, Button, Alert, ImageBackground } from 'react-native';
 import { auth } from '../firebase'; // Importar o Firebase configurado
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, } from 'firebase/auth';
 
 class LoginScreen extends Component {
   state = {
@@ -33,9 +33,10 @@ class LoginScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ImageBackground source={{uri: 'https://ironberg.com.br/assets/images/unidades-ironberg-1.jpg' }} style={styles.container}>
         <View style={styles.loginBox}>
-          <Text style={styles.logoText}>IRONBERG</Text>
+        <Image source={{ uri: 'https://ironberg.com.br/assets/images/ironberg-id-logo-branco.png' }} style={styles.logoText} />
+          <Text style={styles.textH1}>Faça o seu Login</Text>
           <TextInput
             style={styles.input}
             placeholder="Email"
@@ -44,7 +45,7 @@ class LoginScreen extends Component {
             autoCapitalize="none"
             value={this.state.email}
             onChangeText={(text) => this.setState({ email: text })}
-          />
+          />  
           <TextInput
             style={styles.input}
             placeholder="Senha"
@@ -66,12 +67,19 @@ class LoginScreen extends Component {
             Você concorda com a nossa POLÍTICA DE PRIVACIDADE.
           </Text>
         </View>
-      </View>
+      </ImageBackground>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  textH1:{
+    textTransform: 'uppercase',
+    fontSize:25,
+    margin: 20,
+    color:'#fff',
+    fontWeight: 'bold'
+  },
   container: {
     flex: 1,
     backgroundColor: '#000', // Background color
@@ -86,10 +94,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logoText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#fff',
-    marginBottom: 20,
+    height: 100,
+    width: 120,
+    margin: 5 
   },
   input: {
     width: '100%',
