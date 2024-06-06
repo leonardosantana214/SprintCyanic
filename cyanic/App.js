@@ -3,7 +3,9 @@ import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './components/Login'; 
-import SplashScreen from './SplashScreen'; 
+import SplashScreen from './components/splash'; 
+import firebaseConfig from './components/firebase';
+
 
 const Stack = createStackNavigator();
 
