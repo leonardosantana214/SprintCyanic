@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Image, TextInput, TouchableOpacity, Button, Alert, ImageBackground } from 'react-native';
+import { StyleSheet, View, Text, Image, TextInput, TouchableOpacity, Alert, ImageBackground } from 'react-native';
 import { auth } from '../firebase'; // Importar o Firebase configurado
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, } from 'firebase/auth';
-
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 class LoginScreen extends Component {
   state = {
@@ -15,7 +14,7 @@ class LoginScreen extends Component {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       Alert.alert('Login bem-sucedido!');
-      // Redirecionar para outra tela ou realizar outra ação após o login bem-sucedido
+      this.props.navigation.replace('Main');  // Navegação para MainContainer
     } catch (error) {
       Alert.alert('Erro ao fazer login', error.message);
     }
@@ -26,7 +25,7 @@ class LoginScreen extends Component {
     try {
       await signInWithPopup(auth, provider);
       Alert.alert('Login com Google bem-sucedido!');
-      // Redirecionar para outra tela ou realizar outra ação após o login bem-sucedido
+      this.props.navigation.replace('Main');  // Navegação para MainContainer
     } catch (error) {
       Alert.alert('Erro ao fazer login com Google', error.message);
     }
@@ -36,10 +35,8 @@ class LoginScreen extends Component {
     return (
       <ImageBackground source={{uri: 'https://ironberg.com.br/assets/images/unidades-ironberg-1.jpg' }} style={styles.container}>
         <View style={styles.loginBox}>
-        <Image source={{ uri: 'https://ironberg.com.br/assets/images/ironberg-id-logo-branco.png' }} style={styles.logoText} />
-          <Text style={styles.textH1}>
-                  Faça o seu Login
-          </Text>
+          <Image source={{ uri: 'https://ironberg.com.br/assets/images/ironberg-id-logo-branco.png' }} style={styles.logoText} />
+          <Text style={styles.textH1}>Faça o seu Login</Text>
           <TextInput
             style={styles.input}
             placeholder="Email"
@@ -85,7 +82,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#000', // Background color
+    backgroundColor: '#000',
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -3,13 +3,13 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBS-t-SL6ZY1t_bYy0qgwVtWxbtfcx4tqs",
-  authDomain: "smart-fit-sprint.firebaseapp.com",
-  projectId: "smart-fit-sprint",
-  storageBucket: "smart-fit-sprint.appspot.com",
-  messagingSenderId: "1082499419239",
-  appId: "1:1082499419239:web:ee24d26eeefc9e11d098c2",
-  measurementId: "G-84Z8WGL43J",
+  apiKey: "AIzaSyACTaJh4OCXnfwWNANZIFdjfAtHXcvGBNk",
+  authDomain: "cyanic-20732.firebaseapp.com",
+  projectId: "cyanic-20732",
+  storageBucket: "cyanic-20732.appspot.com",
+  messagingSenderId: "652674540628",
+  appId: "1:652674540628:android:d0622d7d47b42d103ef9c1",
+  measurementId: "G-XXXXXXX" // Não encontrado no arquivo .json
 };
 
 const app = initializeApp(firebaseConfig);

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "652674540628",
+    "project_id": "cyanic-20732",
+    "storage_bucket": "cyanic-20732.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652674540628:android:d0622d7d47b42d103ef9c1",
+        "android_client_info": {
+          "package_name": "com.cyanic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "652674540628-nqo3ud2qg9fca3nvfadurge51l6c5jr3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACTaJh4OCXnfwWNANZIFdjfAtHXcvGBNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "652674540628-m801ivib675sju287iapn41gmgnhl7tt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
