@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, Image } from 'react-native';
 
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
@@ -18,7 +18,7 @@ const SplashScreen = ({ navigation }) => {
         style={styles.backgroundImage}
       >
         <View style={styles.overlay}>
-          <Text style={styles.title}>IRONBERG</Text>
+          <Image source={{uri : 'https://ironberg.com.br/assets/images/ironberg-id-logo-branco.png'}} style={styles.ImageLogo}></Image>
           <Text style={styles.tagline}>Foco, força, disciplina e</Text>
           <Text style={styles.result}>RESULTADO!</Text>
         </View>
@@ -44,20 +44,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.8)',
   },
-  title: {
-    fontSize: 36,
-    color: '#fff',
-    fontWeight: 'bold',
-    textAlign: 'center',
+  ImageLogo: {
+    width: 300,
+    height: 250
   },
   tagline: {
-    fontSize: 20,
+    fontSize: 25,
     color: '#fff',
     marginTop: 10,
     textAlign: 'center',
+    fontWeight: '300'
   },
   result: {
-    fontSize: 24,
+    fontSize: 35,
     color: '#fff',
     fontWeight: 'bold',
     marginTop: 5,

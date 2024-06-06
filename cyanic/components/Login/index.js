@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, Image, TextInput, TouchableOpacity, Button, Ale
 import { auth } from '../firebase'; // Importar o Firebase configurado
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, } from 'firebase/auth';
 
+
 class LoginScreen extends Component {
   state = {
     email: '',
@@ -36,7 +37,9 @@ class LoginScreen extends Component {
       <ImageBackground source={{uri: 'https://ironberg.com.br/assets/images/unidades-ironberg-1.jpg' }} style={styles.container}>
         <View style={styles.loginBox}>
         <Image source={{ uri: 'https://ironberg.com.br/assets/images/ironberg-id-logo-branco.png' }} style={styles.logoText} />
-          <Text style={styles.textH1}>Faça o seu Login</Text>
+          <Text style={styles.textH1}>
+                  Faça o seu Login
+          </Text>
           <TextInput
             style={styles.input}
             placeholder="Email"

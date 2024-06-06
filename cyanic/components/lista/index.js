@@ -41,7 +41,7 @@ const exercises = {
   ],
 };
 
-const App = () => {
+const ListaExercices = () => {
   const [selectedCategory, setSelectedCategory] = useState('Calistenia');
   const [exerciseData, setExerciseData] = useState(exercises);
 
@@ -128,4 +128,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default ListaExercices;

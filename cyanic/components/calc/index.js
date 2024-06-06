@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  ImageBackground,
+} from "react-native";
+import { Picker } from "@react-native-picker/picker";
 
 export default function CalcScreen() {
-  const [gender, setGender] = useState('Feminino');
-  const [height, setHeight] = useState('');
-  const [weight, setWeight] = useState('');
+  const [gender, setGender] = useState("Feminino");
+  const [height, setHeight] = useState("");
+  const [weight, setWeight] = useState("");
   const [imc, setImc] = useState(null);
   const [idealWeight, setIdealWeight] = useState(null);
 
@@ -15,10 +22,10 @@ export default function CalcScreen() {
     const imcValue = weightInKg / (heightInMeters * heightInMeters);
     let idealWeightValue;
 
-    if (gender === 'Feminino') {
-      idealWeightValue = 45.5 + 2.3 * ((heightInMeters * 39.37) - 60); // fórmula para mulheres
+    if (gender === "Feminino") {
+      idealWeightValue = 45.5 + 2.3 * (heightInMeters * 39.37 - 60); // fórmula para mulheres
     } else {
-      idealWeightValue = 50 + 2.3 * ((heightInMeters * 39.37) - 60); // fórmula para homens
+      idealWeightValue = 50 + 2.3 * (heightInMeters * 39.37 - 60); // fórmula para homens
     }
 
     setImc(imcValue.toFixed(2));
@@ -26,10 +33,15 @@ export default function CalcScreen() {
   };
 
   return (
-    <ImageBackground source={require('../assets/ironberg_background.png')} style={styles.background}>
+    <ImageBackground
+      source={{
+        uri: "https://ironberg.com.br/assets/images/ironberg-sp-55.jpeg",
+      }}
+      style={styles.background}
+    >
       <View style={styles.container}>
         <View style={styles.box}>
-          <Text style={styles.title}>IMC</Text>
+          <Text style={styles.title}> IMC </Text>
           <Text style={styles.label}>Gênero:</Text>
           <Picker
             selectedValue={gender}
@@ -53,90 +65,94 @@ export default function CalcScreen() {
             value={weight}
             onChangeText={setWeight}
           />
-          <TouchableOpacity style={styles.button} onPress={calculateImcAndIdealWeight}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={calculateImcAndIdealWeight}
+          >
             <Text style={styles.buttonText}>Calcular IMC e Peso ideal</Text>
           </TouchableOpacity>
-          {imc && (
+          {imc !== null && (
             <View style={styles.result}>
               <Text style={styles.resultText}>Seu IMC é: {imc}</Text>
-              <Text style={styles.resultText}>Seu peso ideal é: {idealWeight} kg</Text>
+              <Text style={styles.resultText}>
+                Seu peso ideal é: {idealWeight} kg
+              </Text>
             </View>
           )}
         </View>
       </View>
     </ImageBackground>
-    
   );
 }
 
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
-    alignItems: 'center',
+    resizeMode: "cover",
+    justifyContent: "center",
+    alignItems: "center",
   },
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   box: {
-    width: '80%',
+    width: "80%",
     padding: 20,
-    backgroundColor: '#1c1c1c',
+    backgroundColor: "#1c1c1c",
     borderRadius: 40,
-    alignItems: 'center',
+    alignItems: "center",
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: '#fff',
+    fontWeight: "bold",
+    color: "#fff",
     marginBottom: 20,
   },
   label: {
-    color: '#aaa',
-    alignSelf: 'flex-start',
+    color: "#aaa",
+    alignSelf: "flex-start",
     marginLeft: 20,
     marginTop: 10,
   },
   picker: {
-    width: '100%',
+    width: "100%",
     height: 40,
-    color: '#fff',
-    backgroundColor: '#333',
+    color: "#fff",
     borderRadius: 5,
     marginBottom: 15,
+    backgroundColor: "gray",
   },
   input: {
-    width: '100%',
+    width: 50,
     height: 40,
-    backgroundColor: '#333',
+    backgroundColor: "#333",
     borderRadius: 5,
     paddingHorizontal: 10,
-    color: '#fff',
+    color: "#fff",
     marginBottom: 15,
   },
   button: {
-    width: '100%',
+    width: "100%",
     height: 40,
-    backgroundColor: '#D30505',
+    backgroundColor: "#D30505",
     borderRadius: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     marginBottom: 15,
   },
   buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
+    color: "#fff",
+    fontWeight: "bold",
   },
   result: {
     marginTop: 20,
-    alignItems: 'center',
+    alignItems: "center",
   },
   resultText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });

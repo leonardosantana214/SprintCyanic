@@ -1,17 +1,19 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground,Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const TrainingCenterScreen = () => {
   return (
     <View style={styles.container}>
       <ImageBackground 
-        source={{uri: 'https://your-image-url.png'}} // Replace with the path to your image
+        source={{uri: 'https://ironberg.com.br/assets/images/ironberg-santos-2.jpeg'}} // Replace with the path to your image
         style={styles.backgroundImage}
       >
         <View style={styles.overlay}>
-          <Text style={styles.title}>IRONBERG</Text>
-          <Text style={styles.subtitle}>O MAIOR CENTRO DE TREINAMENTO DO BRASIL</Text>
+          <View style={styles.backDrop}>
+            <Image source={{uri: 'https://ironberg.com.br/assets/images/ironberg-id-logo-branco.png'}} style={styles.title}></Image>
+            <Text style={styles.subtitle}>O MAIOR CENTRO DE TREINAMENTO DO BRASIL</Text>
+          </View>
         </View>
       </ImageBackground>
 
@@ -28,23 +30,33 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     justifyContent: 'center',
   },
+  backDrop:{
+    alignItems: 'center',
+    backgroundColor: '#1F2122',
+    justifyContent: 'center',
+    padding: 20,
+    borderRadius: 40,
+  },
   overlay: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   title: {
-    fontSize: 32,
-    color: '#fff',
-    fontWeight: 'bold',
+    width:150,
+    height: 120,
   },
   subtitle: {
-    fontSize: 18,
+    fontSize: 28,
+    fontWeight: 'bold',
     color: '#fff',
     marginTop: 10,
     textAlign: 'center',
     paddingHorizontal: 20,
+    flexWrap: 'wrap',
+    fontStyle: 'italic',
+    marginBottom: 20
   },
   footer: {
     height: 60,
