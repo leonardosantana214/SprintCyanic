@@ -25,7 +25,7 @@ class AppL extends Component {
           initialRouteName="SplashScreen"
           screenOptions={{ headerShown: false }}
         >
-          {/* <Stack.Screen name="SplashScreen" component={SplashScreen} />
+          <Stack.Screen name="SplashScreen" component={SplashScreen} />
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
           <Stack.Screen name="MainContainer" component={MainContainer} />
           <Stack.Screen
@@ -37,7 +37,7 @@ class AppL extends Component {
           <Stack.Screen name="Exercises" component={Exercises} />
           <Stack.Screen name="exerciseList" component={ExerciseList} />
           <Stack.Screen name="exerciseDetails" component={ExerciseDetails} />
-          <Stack.Screen name="ListaExercices" component={ListaExercices} /> */}
+          <Stack.Screen name="ListaExercices" component={ListaExercices} />
           <Stack.Screen name="UserProfileScreen" component={UserProfileScreen} />
         </Stack.Navigator>
       </NavigationContainer>
