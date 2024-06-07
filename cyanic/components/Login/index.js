@@ -1,12 +1,25 @@
-import React from 'react';
-import { StyleSheet, View, Text, Image, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, Text, Image, TextInput, TouchableOpacity, ImageBackground, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    navigation.replace('home');
+
+    // Validação dos dados de login
+    if (email === 'teste@teste' && password === '12345678') {
+      navigation.replace('TrainingCenterScreen');
+    }
+    else if(email =='' && password == '') {
+      Alert.alert('Erro', 'Preencha os campos para efetuar o login');
+    }
+     else {
+      Alert.alert('Erro', 'Email ou senha incorretos.');
+    }
+
   };
 
   return (
@@ -20,12 +33,16 @@ const LoginScreen = () => {
           placeholderTextColor="#aaa"
           keyboardType="email-address"
           autoCapitalize="none"
+          value={email}
+          onChangeText={setEmail}
         />
         <TextInput
           style={styles.input}
           placeholder="Senha"
           placeholderTextColor="#aaa"
           secureTextEntry
+          value={password}
+          onChangeText={setPassword}
         />
         <TouchableOpacity>
           <Text style={styles.forgotPasswordText}>Esqueceu a senha?</Text>
