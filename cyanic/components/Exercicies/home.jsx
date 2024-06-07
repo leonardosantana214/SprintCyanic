@@ -32,7 +32,7 @@ const Home = () => {
 
         <Animated.View entering={FadeInDown.delay(200).springify()}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('home')}
+            onPress={() => navigation.navigate('Exercises')}
             style={styles.button}
           >
             <Text style={styles.buttonText}>Get Started</Text>
