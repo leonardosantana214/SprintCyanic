@@ -5,7 +5,6 @@ import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
 import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated';
 import { useRouter } from 'expo-router';
-import reactIs from 'react-is'; // Import react-is directly
 
 const IndexExercicios = () => {
   const router = useRouter();
