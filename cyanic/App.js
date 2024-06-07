@@ -7,12 +7,14 @@ import MainContainer from "./navigation/MainContainer";
 import CalcScreen from "./components/calc";
 import ListaExercices from "./components/lista";
 import TrainingCenterScreen from "./components/default";
+
 import Home from "./components/Exercicies/home";
 import IndexExercicios from "./components/Exercicies";
 import Exercises from "./components/Exercicies/exercises";
 import ExerciseDetails from "./components/Exercicies/exerciseDetails";
 import ExerciseList from "./components/Exercicies/ExerciseList";
 import UserProfileScreen from "./components/Perfil";
+
 
 const Stack = createStackNavigator();
 
@@ -37,6 +39,7 @@ class AppL extends Component {
           <Stack.Screen name="exerciseList" component={ExerciseList} />
           <Stack.Screen name="IndexExercicios" component={IndexExercicios} />
           <Stack.Screen name="exerciseDetails" component={ExerciseDetails} />
+
           <Stack.Screen name="ListaExercices" component={ListaExercices} />
           <Stack.Screen name="UserProfileScreen" component={UserProfileScreen} />
         </Stack.Navigator>

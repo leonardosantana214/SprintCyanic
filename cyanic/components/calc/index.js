@@ -35,7 +35,7 @@ export default function CalcScreen() {
   return (
     <ImageBackground
       source={{
-        uri: "https://ironberg.com.br/assets/images/ironberg-sp-55.jpeg",
+        uri: "https://www.esportelandia.com.br/wp-content/uploads/2023/11/Ironberg.png.webp",
       }}
       style={styles.background}
     >
@@ -50,6 +50,7 @@ export default function CalcScreen() {
           >
             <Picker.Item label="Feminino" value="Feminino" />
             <Picker.Item label="Masculino" value="Masculino" />
+            <Picker.Item label="Outro" value="Outro" />
           </Picker>
           <Text style={styles.label}>Altura (cm):</Text>
           <TextInput
@@ -58,6 +59,7 @@ export default function CalcScreen() {
             value={height}
             onChangeText={setHeight}
           />
+
           <Text style={styles.label}>Peso Atual (kg):</Text>
           <TextInput
             style={styles.input}
@@ -96,10 +98,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    marginTop:307,
+    textAlign: "center"
+
   },
   box: {
-    width: "80%",
-    padding: 20,
+    padding: 30,
+    height:650,
+    width:280,
     backgroundColor: "#1c1c1c",
     borderRadius: 40,
     alignItems: "center",
@@ -113,34 +119,46 @@ const styles = StyleSheet.create({
   label: {
     color: "#aaa",
     alignSelf: "flex-start",
-    marginLeft: 20,
     marginTop: 10,
+    borderBottomColor:"gren",
+    borderWidth:1,
+    textAlign: "center",
+    marginBottom: 7,
+    width: '100%',
+    borderTopColor:"transparent",
+    borderRightColor:"transparent",
+    borderLeftColor:"transparent",
+
   },
   picker: {
-    width: "100%",
-    height: 40,
+    width: 180,
+    height:1,
     color: "#fff",
-    borderRadius: 5,
     marginBottom: 15,
-    backgroundColor: "gray",
+    backgroundColor: "#333",   
+   
   },
   input: {
-    width: 50,
+    width: 200 ,
     height: 40,
     backgroundColor: "#333",
-    borderRadius: 5,
+    borderRadius: 100,
     paddingHorizontal: 10,
     color: "#fff",
     marginBottom: 15,
+    textAlign: "center",
+    borderWidth:1,
+    borderColor: "red",
   },
   button: {
     width: "100%",
     height: 40,
     backgroundColor: "#D30505",
-    borderRadius: 5,
+    borderRadius: 100,
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 15,
+
   },
   buttonText: {
     color: "#fff",
