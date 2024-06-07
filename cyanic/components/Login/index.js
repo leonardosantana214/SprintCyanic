@@ -6,7 +6,7 @@ const LoginScreen = () => {
   const navigation = useNavigation();
 
   const handleLogin = () => {
-    navigation.replace('TrainingCenterScreen');
+    navigation.replace('home');
   };
 
   return (
