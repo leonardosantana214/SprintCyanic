@@ -1,4 +1,3 @@
-// AppL.js
 import React, { Component } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
@@ -33,6 +32,7 @@ class AppL extends Component {
             component={TrainingCenterScreen}
           />
           <Stack.Screen name="CalcScreen" component={CalcScreen} />
+          <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Exercises" component={Exercises} />
           <Stack.Screen name="exerciseList" component={ExerciseList} />
           <Stack.Screen name="IndexExercicios" component={IndexExercicios} />

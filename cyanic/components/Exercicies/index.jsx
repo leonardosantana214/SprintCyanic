@@ -3,15 +3,16 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
-import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated';
-import { useRouter } from 'expo-router';
+import Animated, { FadeInDown } from 'react-native-reanimated';
+import { useNavigation } from '@react-navigation/native';
 
 const IndexExercicios = () => {
-  const router = useRouter();
+  const navigation = useNavigation();
+  
   return (
     <View className="flex-1 flex justify-end">
       <StatusBar style="light" />
-      <Image className="h-full w-full absolute" source={require('../assets/images/welcome.png')} />
+      <Image className="h-full w-full absolute" source={require('./assets/images/welcome.png')} />
 
       <LinearGradient
         colors={['transparent', '#18181b']}
@@ -31,7 +32,7 @@ const IndexExercicios = () => {
 
         <Animated.View entering={FadeInDown.delay(200).springify()}>
           <TouchableOpacity
-            onPress={() => router.push('home')}
+            onPress={() => navigation.navigate('home')}
             style={{ height: hp(7), width: wp(80) }}
             className="bg-rose-500 flex items-center justify-center mx-auto rounded-full border-[2px] border-neutral-200"
           >
