@@ -13,7 +13,7 @@ const LoginScreen = () => {
     if (email === 'teste@teste' && password === '12345678') {
 
 
-      navigation.replace('IndexExercicios');
+      navigation.replace('Home');
 
     }
     else if(email =='' && password == '') {
