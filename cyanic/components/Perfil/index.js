@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, Image, ImageBackground } from 'react-native';
 
 const UserProfileScreen = ({ navigation }) => {
   const [name, setName] = useState('###');
@@ -8,7 +8,7 @@ const UserProfileScreen = ({ navigation }) => {
   const [dob, setDob] = useState('##/##/####');
 
   return (
-    <View style={styles.container}>
+    <ImageBackground source={{uri : 'https://ironberg.com.br/assets/images/ironberg-santos-2.jpeg'}} style={styles.container}>
       <View style={styles.profileContainer}>
         <Image 
           source={{ uri: 'https://ellun.com.br/wp-content/uploads/2024/04/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free.png' }}
@@ -35,7 +35,7 @@ const UserProfileScreen = ({ navigation }) => {
           <Text style={styles.logoutButtonText}>Sair da conta</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ImageBackground>
   );
 };
 
@@ -47,8 +47,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   profileContainer: {
-    width: '90%',
-    backgroundColor: '#333',
+    width: '80%',
+    backgroundColor: '#1F2122',
     borderRadius: 10,
     padding: 20,
     alignItems: 'center',
@@ -74,12 +74,13 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   input: {
-    backgroundColor: '#fff',
+    backgroundColor: '#000000',
     padding: 10,
     borderRadius: 5,
+    color: '#fff',
   },
   logoutButton: {
-    backgroundColor: '#ff0000',
+    backgroundColor: '#D30505',
     padding: 15,
     borderRadius: 5,
     marginTop: 20,
