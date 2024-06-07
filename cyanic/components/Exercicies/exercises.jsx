@@ -1,16 +1,16 @@
-// exercises.jsx
-import { fetchExercisesByBodypart } from './api/exerciseDB'; // Corrigindo o caminho de importação
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
-import { useLocation, useHistory } from 'react-router-native'; // Importe useLocation e useHistory corretamente
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-// Remova a importação do react-native-responsive-screen, ela não é necessária aqui
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { fetchExercisesByBodypart } from './api/exerciseDB';
+import ExerciseList from './ExerciseList';
 
 const Exercises = () => {
-    const location = useLocation();
-    const history = useHistory();
+    const navigation = useNavigation();
+    const route = useRoute();
     const [exercises, setExercises] = useState([]);
-    const { name, image } = location.state || {};
+    const { name, image } = route.params || {};
 
     useEffect(() => {
         if (name) getExercises(name);
@@ -19,25 +19,33 @@ const Exercises = () => {
     const getExercises = async (bodypart) => {
         let data = await fetchExercisesByBodypart(bodypart);
         setExercises(data);
-    }
+    };
 
     return (
-        <View>
+        <View style={{ flex: 1 }}>
             <StatusBar style="light" />
             {image && (
                 <Image
                     source={image}
-                    style={{ width: '100%', height: 200 }} // Corrigido estilo da imagem
+                    style={{ width: '100%', height: 200 }}
                 />
             )}
             <TouchableOpacity
-                onPress={() => history.goBack()}
-                style={{ backgroundColor: 'red', position: 'absolute', top: 20, left: 10, borderRadius: 50, width: 40, height: 40, justifyContent: 'center', alignItems: 'center' }}
+                onPress={() => navigation.goBack()}
+                style={{
+                    backgroundColor: 'red',
+                    position: 'absolute',
+                    top: 20,
+                    left: 10,
+                    borderRadius: 50,
+                    width: 40,
+                    height: 40,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
             >
                 <Ionicons name="caret-back-outline" size={30} color="white" />
             </TouchableOpacity>
-
-            {/* exercises */}
             <View style={{ marginHorizontal: 10, marginTop: 20 }}>
                 <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#333' }}>
                     {name} exercises
@@ -48,6 +56,6 @@ const Exercises = () => {
             </View>
         </View>
     );
-}
+};
 
 export default Exercises;
