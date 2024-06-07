@@ -11,7 +11,7 @@ const LoginScreen = () => {
 
     // Validação dos dados de login
     if (email === 'teste@teste' && password === '12345678') {
-      navigation.replace('IndexExercicios');
+      navigation.replace('TrainingCenterScreen');
     }
     else if(email =='' && password == '') {
       Alert.alert('Erro', 'Preencha os campos para efetuar o login');

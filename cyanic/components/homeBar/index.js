@@ -1,55 +1,58 @@
-// import * as React from 'react';
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-// import Icon from 'react-native-vector-icons/Ionicons';
+// homeBar/index.js
+import React from "react";
+import { View, TouchableOpacity, StyleSheet } from "react-native";
+import { Feather } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
+const NavBar = () => {
+  const navigation = useNavigation();
 
-// import ProfileScreen from './screens/ProfileScreen'; // Tela do perfil
-// import CalcScreen from '../calc';
-// import ListaExercices from '../lista';
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("TrainingCenterScreen")}
+        style={styles.iconContainer}
+      >
+        <Feather name="home" size={30} color="#fff" />
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("ListaExercices")}
+        style={styles.iconContainer}
+      >
 
-// const Tab = createBottomTabNavigator();
+        <Feather name="search" size={30} color="#fff" />
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("CalcScreen")}
+        style={styles.iconContainer}
+      >
 
-// function MyTabs() {
-//   return (
-//     <Tab.Navigator
-//       screenOptions={({ route }) => ({
-//         tabBarIcon: ({ color, size }) => {
-//           let iconName;
+        <Feather name="search" size={30} color="#fff" />
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("UserProfileScreen")}
+        style={styles.iconContainer}
+      >
+        <Feather name="user" size={30} color="#fff" />
+      </TouchableOpacity>
+    </View>
+  );
+};
 
-//           if (route.name === 'Calc') {
-//             iconName = 'ios-calculator';
-//           } else if (route.name === 'List') {
-//             iconName = 'ios-list';
-//           } 
-//           // else if (route.name === 'Profile') {
-//           //   iconName = 'ios-person';
-//           // }
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    backgroundColor: "#1F2122",
+    paddingBottom: 10,
+    paddingTop: 5,
+    borderTopWidth: 1,
+    borderTopColor: "#ccc",
+  },
+  iconContainer: {
+    paddingHorizontal: 20,
+  },
+});
 
-//           // Você pode retornar qualquer componente aqui!
-//           return <Icon name={iconName} size={size} color={color} />;
-//         },
-//       })}
-//       tabBarOptions={{
-//         activeTintColor: 'white',
-//         inactiveTintColor: 'gray',
-//         style: {
-//           backgroundColor: '#000', // Cor de fundo da barra de navegação
-//         },
-//       }}
-//     >
-//       <Tab.Screen name="Calc" component={CalcScreen} />
-//       <Tab.Screen name="List" component={ListaExercices} />
-
-//       {/* <Tab.Screen name="Profile" component={ProfileScreen} /> */}
-//     </Tab.Navigator>
-//   );
-// }
-
-// export default function MenuBar() {
-//   return (
-//     <NavigationContainer>
-//       <MyTabs />
-//     </NavigationContainer>
-//   );
-// }
+export default NavBar;
