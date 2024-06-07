@@ -14,6 +14,7 @@ import Home from "./components/Exercicies/home";
 import Exercises from "./components/Exercicies/exercises";
 import ExerciseDetails from "./components/Exercicies/exerciseDetails";
 import ExerciseList from "./components/Exercicies/ExerciseList";
+import UserProfileScreen from "./components/Perfil";
 const Stack = createStackNavigator();
 
 class AppL extends Component {
@@ -24,7 +25,7 @@ class AppL extends Component {
           initialRouteName="SplashScreen"
           screenOptions={{ headerShown: false }}
         >
-          <Stack.Screen name="SplashScreen" component={SplashScreen} />
+          {/* <Stack.Screen name="SplashScreen" component={SplashScreen} />
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
           <Stack.Screen name="MainContainer" component={MainContainer} />
           <Stack.Screen
@@ -36,7 +37,8 @@ class AppL extends Component {
           <Stack.Screen name="Exercises" component={Exercises} />
           <Stack.Screen name="exerciseList" component={ExerciseList} />
           <Stack.Screen name="exerciseDetails" component={ExerciseDetails} />
-          <Stack.Screen name="ListaExercices" component={ListaExercices} />
+          <Stack.Screen name="ListaExercices" component={ListaExercices} /> */}
+          <Stack.Screen name="UserProfileScreen" component={UserProfileScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     );
