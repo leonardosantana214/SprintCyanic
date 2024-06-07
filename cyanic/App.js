@@ -9,11 +9,11 @@ import MainContainer from "./navigation/MainContainer";
 import CalcScreen from "./components/calc";
 import ListaExercices from "./components/lista";
 import TrainingCenterScreen from "./components/default";
-import App from "./components/Exercicies/App13";
-import Home from "./components/Exercicies/home";
-import Exercises from "./components/Exercicies/exercises";
-import ExerciseDetails from "./components/Exercicies/exerciseDetails";
-import ExerciseList from "./components/Exercicies/ExerciseList";
+// import App from "./components/Exercicies/App13";
+// import Home from "./components/Exercicies/home";
+// import Exercises from "./components/Exercicies/exercises";
+// import ExerciseDetails from "./components/Exercicies/exerciseDetails";
+// import ExerciseList from "./components/Exercicies/ExerciseList";
 const Stack = createStackNavigator();
 
 class AppL extends Component {
@@ -32,10 +32,10 @@ class AppL extends Component {
             component={TrainingCenterScreen}
           />
           <Stack.Screen name="CalcScreen" component={CalcScreen} />
-          <Stack.Screen name="home" component={Home} />
+          {/* <Stack.Screen name="home" component={Home} />
           <Stack.Screen name="Exercises" component={Exercises} />
           <Stack.Screen name="exerciseList" component={ExerciseList} />
-          <Stack.Screen name="exerciseDetails" component={ExerciseDetails} />
+          <Stack.Screen name="exerciseDetails" component={ExerciseDetails} /> */}
           <Stack.Screen name="ListaExercices" component={ListaExercices} />
         </Stack.Navigator>
       </NavigationContainer>
