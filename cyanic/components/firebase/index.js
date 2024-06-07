@@ -1,5 +1,5 @@
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -9,7 +9,7 @@ const firebaseConfig = {
   storageBucket: "cyanic-20732.appspot.com",
   messagingSenderId: "652674540628",
   appId: "1:652674540628:android:d0622d7d47b42d103ef9c1",
-  measurementId: "G-XXXXXXX" // Não encontrado no arquivo .json
+  measurementId: "G-XXXXXXX"
 };
 
 const app = initializeApp(firebaseConfig);

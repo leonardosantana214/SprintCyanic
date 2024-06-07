@@ -6,6 +6,7 @@ import SplashScreen from './components/splash';
 import MainContainer from './navigation/MainContainer';
 import CalcScreen from './components/calc';
 import ListaExercices from './components/lista';
+import TrainingCenterScreen from './components/default';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,7 @@ class AppL extends Component {
           <Stack.Screen name="SplashScreen" component={SplashScreen} />
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
           <Stack.Screen name="MainContainer" component={MainContainer} />
+          <Stack.Screen name="TrainingCenterScreen" component={TrainingCenterScreen} />
           <Stack.Screen name="CalcScreen" component={CalcScreen} />
           <Stack.Screen name="ListaExercices" component={ListaExercices} />
         </Stack.Navigator>

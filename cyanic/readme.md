@@ -1,12 +1,50 @@
-import React from 'react';
-import { StyleSheet, View, Text, Image, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+<!-- Login
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, View, Text, Image, TextInput, TouchableOpacity, Alert, ImageBackground } from 'react-native';
+import { auth } from '../firebase'; // Certifique-se de que está importando corretamente o auth
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect, getAuth, getRedirectResult } from 'firebase/auth';
 
-const LoginScreen = () => {
-  const navigation = useNavigation();
+const LoginScreen = ({ navigation }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    navigation.replace('TrainingCenterScreen');
+  useEffect(() => {
+    // Configurar observador para o login com o Google
+    getRedirectResult(auth)
+      .then((result) => {
+        if (result) {
+          // O usuário está logado
+          const credential = GoogleAuthProvider.credentialFromResult(result);
+          const token = credential.accessToken;
+          const user = result.user;
+          Alert.alert('Login com Google bem-sucedido!');
+          navigation.replace('Main');  // Navegação para MainContainer
+        }
+      })
+      .catch((error) => {
+        if (error.message !== 'auth/no-current-user') {
+          Alert.alert('Erro ao fazer login com Google', error.message);
+        }
+      });
+  }, []);
+
+  const handleLogin = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      Alert.alert('Login bem-sucedido!');
+      navigation.replace('Main');  // Navegação para MainContainer
+    } catch (error) {
+      Alert.alert('Erro ao fazer login', error.message);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      const provider = new GoogleAuthProvider();
+      await signInWithRedirect(auth, provider);
+    } catch (error) {
+      Alert.alert('Erro ao fazer login com Google', error.message);
+    }
   };
 
   return (
@@ -20,12 +58,16 @@ const LoginScreen = () => {
           placeholderTextColor="#aaa"
           keyboardType="email-address"
           autoCapitalize="none"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
         />
         <TextInput
           style={styles.input}
           placeholder="Senha"
           placeholderTextColor="#aaa"
           secureTextEntry
+          value={password}
+          onChangeText={(text) => setPassword(text)}
         />
         <TouchableOpacity>
           <Text style={styles.forgotPasswordText}>Esqueceu a senha?</Text>
@@ -33,7 +75,7 @@ const LoginScreen = () => {
         <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
           <Text style={styles.loginButtonText}>LOG IN</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.googleButton}>
+        <TouchableOpacity style={styles.googleButton} onPress={handleGoogleLogin}>
           <Text style={styles.googleButtonText}>Continue com o Google</Text>
         </TouchableOpacity>
         <Text style={styles.privacyText}>
@@ -116,4 +158,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default LoginScreen; -->
