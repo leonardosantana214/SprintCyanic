@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     paddingHorizontal: 20,
+    color: '#fff',
   },
 });
 

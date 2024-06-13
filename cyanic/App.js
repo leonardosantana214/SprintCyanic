@@ -8,10 +8,10 @@ import CalcScreen from "./components/calc";
 import ListaExercices from "./components/lista";
 import TrainingCenterScreen from "./components/default";
 import Home from "./components/Exercicies/home";
-// import IndexExercicios from "./components/Exercicies";
-// import Exercises from "./components/Exercicies/exercises";
-// import ExerciseDetails from "./components/Exercicies/exerciseDetails";
-// import ExerciseList from "./components/Exercicies/ExerciseList";
+import IndexExercicios from "./components/Exercicies";
+import Exercises from "./components/Exercicies/exercises";
+import ExerciseDetails from "./components/Exercicies/exerciseDetails";
+import ExerciseList from "./components/Exercicies/ExerciseList";
 import UserProfileScreen from "./components/Perfil";
 import NavBar from "./components/homeBar";
 
