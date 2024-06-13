@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     color: "#aaa",
     alignSelf: "flex-start",
     marginTop: 10,
-    borderBottomColor:"gren",
+    borderBottomColor:"gray",
     borderWidth:1,
     textAlign: "center",
     marginBottom: 7,
