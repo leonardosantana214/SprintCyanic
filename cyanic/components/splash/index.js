@@ -14,7 +14,7 @@ const SplashScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <ImageBackground 
-        source={{uri: 'https://your-image-url.png'}} 
+        source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVxSNgYVQ8OcrzvbWVJJIQ4SSijgY2MMImqQ&s'}} 
         style={styles.backgroundImage}
       >
         <View style={styles.overlay}>

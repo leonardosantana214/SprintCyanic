@@ -10,7 +10,7 @@ const LoginScreen = () => {
   const handleLogin = () => {
 
     // Validação dos dados de login
-    if (email === 'teste@teste' && password === '12345678') {
+    if (email === 'teste@teste' && password === '123') {
 
       navigation.replace('TrainingCenterScreen')
     }

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from 'react';
 
 const FitnessItems = createContext();
 
@@ -26,7 +26,6 @@ const FitnessContextProvider = ({ children }) => {
   );
 };
 
-// Custom hook to use FitnessContext
 const useFitnessContext = () => {
   return useContext(FitnessItems);
 };
