@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, Image, ImageBackground } from 'react-native';
+import { Navigate } from 'react-router-native';
 
 const UserProfileScreen = ({ navigation }) => {
   const [name, setName] = useState('###');
@@ -31,7 +32,7 @@ const UserProfileScreen = ({ navigation }) => {
           <Text style={styles.label}>Nascimento:</Text>
           <TextInput style={styles.input} value={dob} onChangeText={setDob} />
         </View>
-        <TouchableOpacity style={styles.logoutButton} onPress={() => { /* Add logout logic */ }}>
+        <TouchableOpacity style={styles.logoutButton} onPress={() => {navigation.replace('LoginScreen')}}>
           <Text style={styles.logoutButtonText}>Sair da conta</Text>
         </TouchableOpacity>
       </View>
