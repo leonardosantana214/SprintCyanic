@@ -15,21 +15,24 @@ const Stack = createStackNavigator();
 
 const MainStack = () => {
   return (
-    <Stack.Navigator
-      initialRouteName="SplashScreen"
-      screenOptions={{ headerShown: false }}
-    >
-      <Stack.Screen name="SplashScreen" component={SplashScreen} />
-      <Stack.Screen name="LoginScreen" component={LoginScreen} />
-      <Stack.Screen
-        name="TrainingCenterScreen"
-        component={TrainingCenterScreen}
-      />
-      <Stack.Screen name="CalcScreen" component={CalcScreen} />
-      <Stack.Screen name="UserProfileScreen" component={UserProfileScreen} />
-      <Stack.Screen name="AppExercicies" component={AppExercicies} />
-      <Stack.Screen name="ListaExercices" component={ListaExercices} />
-    </Stack.Navigator>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="SplashScreen"
+        screenOptions={{ headerShown: false }}
+      >
+        <Stack.Screen name="SplashScreen" component={SplashScreen} />
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
+        <Stack.Screen
+          name="TrainingCenterScreen"
+          component={TrainingCenterScreen}
+        />
+        <Stack.Screen name="CalcScreen" component={CalcScreen} />
+        <Stack.Screen name="UserProfileScreen" component={UserProfileScreen} />
+        <Stack.Screen name="AppExercicies" component={AppExercicies} />
+        <Stack.Screen name="ListaExercices" component={ListaExercices} />
+      </Stack.Navigator>
+      <NavBar />
+    </NavigationContainer>
   );
 };
 
@@ -49,5 +52,4 @@ const AppL = () => {
   );
 };
 
-export default AppL;
-  
+export default MainStack;
