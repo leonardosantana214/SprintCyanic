@@ -29,13 +29,7 @@ const NavBar = () => {
 
         <Feather name="search" size={30} color="#fff" />
       </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => navigation.navigate("AppExercicies")}
-        style={styles.iconContainer}
-      >
-
-        <Feather name="search" size={30} color="#fff" />
-      </TouchableOpacity>
+     
       <TouchableOpacity
         onPress={() => navigation.navigate("UserProfileScreen")}
         style={styles.iconContainer}

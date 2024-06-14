@@ -7,15 +7,9 @@ import MainContainer from "./navigation/MainContainer";
 import CalcScreen from "./components/calc";
 import ListaExercices from "./components/lista";
 import TrainingCenterScreen from "./components/default";
-import Home from "./components/Exercicies/home";
-import IndexExercicios from "./components/Exercicies";
-import Exercises from "./components/Exercicies/exercises";
-import ExerciseDetails from "./components/Exercicies/exerciseDetails";
-import ExerciseList from "./components/Exercicies/ExerciseList";
 import UserProfileScreen from "./components/Perfil";
 import NavBar from "./components/homeBar";
-// Verifique o caminho correto para AppExercicies
-import AppExercicies from "./components/react-native-fitness-app-main/react-native-fitness-app-main/App";
+import UserProfileScreen from "./components/Perfil";
 import { StatusBar } from "expo-status-bar";
 
 const Stack = createStackNavigator();
@@ -36,13 +30,9 @@ class AppL extends Component {
             component={TrainingCenterScreen}
           />
           <Stack.Screen name="CalcScreen" component={CalcScreen} />
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Exercises" component={Exercises} />
-          <Stack.Screen name="exerciseList" component={ExerciseList} />
-          <Stack.Screen name="exerciseDetails" component={ExerciseDetails} />
+          <Stack.Screen name="UserProfileScreen" component={UserProfileScreen} />
           <Stack.Screen name="ListaExercices" component={ListaExercices} />
         </Stack.Navigator>
-        {/* Renderize AppExercicies fora do Stack.Navigator */}
         <AppExercicies />
         <NavBar />
         <StatusBar style="light" backgroundColor="#000" />
