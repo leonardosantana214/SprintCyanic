@@ -5,12 +5,12 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 // Import das telas
 import ListaExercices from '../components/lista/index';
 import CalcScreen from '../components/calc/index';
-import IndexExercicios from '../components/Exercicies/app';
+// import IndexExercicios from '../components/Exercicies/app';
 
 // Nomes das telas
 const homeName = "ListaExercices";
 const calcName = "CalcScreen";
-const exercisesName = "IndexExercicios";
+// const exercisesName = "IndexExercicios";
 
 const Tab = createBottomTabNavigator();
 
@@ -43,7 +43,7 @@ function MainContainer() {
 
       <Tab.Screen name={homeName} component={ListaExercices} />
       <Tab.Screen name={calcName} component={CalcScreen} />
-      <Tab.Screen name={exercisesName} component={IndexExercicios} />
+      {/* <Tab.Screen name={exercisesName} component={IndexExercicios} /> */}
     </Tab.Navigator>
   );
 }

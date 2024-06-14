@@ -16,7 +16,7 @@ const Stack = createStackNavigator();
 const AppL = () => {
   return (
     <NavigationContainer>
-    <NavBarWrapper />
+
       <Stack.Navigator
         initialRouteName="SplashScreen"
         screenOptions={{ headerShown: false }}
@@ -33,7 +33,7 @@ const AppL = () => {
         <Stack.Screen name="ListaExercices" component={ListaExercices} />
       </Stack.Navigator>
       <StatusBar style="light" backgroundColor="#000" />
-
+      <NavBarWrapper />
     </NavigationContainer>
   );
 };
