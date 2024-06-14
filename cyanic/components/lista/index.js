@@ -45,12 +45,14 @@ const ListaExercices = () => {
           </Picker>
         </View>
         <View style={styles.listContainer}>
-          <DraggableFlatList
-            data={exerciseCategories[selectedCategory] || []}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id}
-            contentContainerStyle={styles.list}
-          />
+          <View style={styles.listBackdrop}>
+            <DraggableFlatList
+              data={exerciseCategories[selectedCategory] || []}
+              renderItem={renderItem}
+              keyExtractor={(item) => item.id}
+              contentContainerStyle={styles.list}
+            />
+          </View>
         </View>
       </View>
     </ImageBackground>
@@ -60,8 +62,8 @@ const ListaExercices = () => {
 const styles = StyleSheet.create({
   backdrop: {
     flex: 1,
-    backgroundColor: '#1F2122',
-    borderRadius: 40,
+    backgroundColor: 'rgba(31, 33, 34, 0.8)', // fundo semi-transparente
+    borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
@@ -69,12 +71,11 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#1F2122',
     padding: 16,
   },
   title: {
-    fontSize: 35,
-    fontWeight: "300",
+    fontSize: 28,
+    fontWeight: "bold",
     color: "#fff",
     textAlign: "center",
     marginVertical: 16,
@@ -90,33 +91,29 @@ const styles = StyleSheet.create({
   },
   picker: {
     color: "#fff",
-    justifyContent: "center",
-    alignItems: "center"
   },
   listContainer: {
     flex: 1,
     width: '100%',
-    backgroundColor: 'transparent'
+  },
+  listBackdrop: {
+    backgroundColor: 'rgba(255, 255, 255, 0.3)', // fundo branco semi-transparente
+    borderRadius: 20,
+    padding: 8,
+    width: '100%',
+    flex: 1,
   },
   list: {
     flexGrow: 1,
-    backgroundColor: 'transparent'
   },
   item: {
     padding: 16,
     marginVertical: 8,
     backgroundColor: '#1F2122',
-    borderWidth: 1,
-    borderTopWidth: 0,
-    borderLeftWidth: 0,
-    borderRightWidth: 0,
-    borderBottomColor: '#666',
     borderRadius: 8,
-    alignItems: "center",
-    width: '100%',
   },
   itemText: {
-    fontSize: 18,
+    fontSize: 16,
     color: "#fff",
     textTransform: "uppercase"
   },

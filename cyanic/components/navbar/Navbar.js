@@ -1,52 +1,52 @@
 import React from "react";
-import { View, TouchableOpacity, StyleSheet } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import Icon from "react-native-vector-icons/FontAwesome";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { View, StyleSheet } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import LoginScreen from "../../components/Login";
+import SplashScreen from "../../components/splash";
+import CalcScreen from "../../components/calc";
 
-const NavBar = () => {
-  const navigation = useNavigation();
+import TrainingCenterScreen from "../../components/default";
+import UserProfileScreen from "../../components/Perfil";
+import AppExercicios from "../../components/react-native-fitness-app-main/react-native-fitness-app-main/App";
+import MainStack from "../../App";
 
-  const navigateToScreen = (screenName) => {
-    navigation.navigate(screenName);
-  };
+const Stack = createStackNavigator();
 
+const MainStack = () => {
   return (
-    <View style={styles.container}>
-      {/* <NavItem iconName="calculator" screenName="CalcScreen" onPress={() => navigateToScreen('CalcScreen')} />
-      <NavItem iconName="list" screenName="ListaExercices" onPress={() => navigateToScreen('ListaExercices')} />
-      <NavItem iconName="heartbeat" screenName="AppExercicies" onPress={() => navigateToScreen('AppExercicies')} />
-      <NavItem iconName="user" screenName="UserProfileScreen" onPress={() => navigateToScreen('UserProfileScreen')} /> */}
-      <TouchableOpacity style={styles.navItem} onPress={() => navigateToScreen('CalcScreen')}>
-        {/* <Icon name={iconName} size={30} color="#000" /> */}
-        <Text>{user}</Text>
-      </TouchableOpacity>
-    </View>
+    <NavigationContainer>
+      <View style={styles.container}>
+        <View style={styles.content}>
+          <Stack.Navigator
+            initialRouteName="SplashScreen"
+            screenOptions={{ headerShown: false }}
+          >
+            <Stack.Screen name="SplashScreen" component={SplashScreen} />
+            <Stack.Screen name="LoginScreen" component={LoginScreen} />
+            <Stack.Screen
+              name="TrainingCenterScreen"
+              component={TrainingCenterScreen}
+            />
+            <Stack.Screen name="CalcScreen" component={CalcScreen} />
+            <Stack.Screen name="UserProfileScreen" component={UserProfileScreen} />
+            <Stack.Screen name="AppExercicios" component={AppExercicios} />
+
+          </Stack.Navigator>
+        </View>
+        <NavBar />
+      </View>
+    </NavigationContainer>
   );
 };
 
-const NavItem = ({ iconName, onPress }) => (
-  <TouchableOpacity style={styles.navItem} onPress={onPress}>
-    {/* <Icon name={iconName} size={30} color="#000" /> */}
-    <Text>{iconName}</Text>
-  </TouchableOpacity>
-);
-
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    height: 60,
-    backgroundColor: "#fff",
-    borderTopWidth: 1,
-    borderTopColor: "#ccc",
-  },
-  navItem: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+  },
+  content: {
+    flex: 1,
   },
 });
 
-export default NavBar;
+export default MainStack;
